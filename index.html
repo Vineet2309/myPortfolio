@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineet Maheshwari | AI Engineer & Full-Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#030509',
+                        darkCard: '#080c16',
+                        neonPurple: '#d946ef',
+                        neonCyan: '#06b6d4',
+                        neonPink: '#f43f5e',
+                        accentGlow: 'rgba(217, 70, 239, 0.15)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(6, 182, 212, 0.35)',
+                        'neon-purple': '0 0 15px rgba(217, 70, 239, 0.35)',
+                        'neon-pink': '0 0 15px rgba(244, 63, 94, 0.35)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.6)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030509;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Smooth Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030509;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0e1726;
+            border-radius: 9999px;
+            border: 2px solid #030509;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        /* Cyber Tech Grid Background overlay */
+        .cyber-grid {
+            background-image: linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center;
+        }
+
+        /* Ambient Glow Gradients */
+        .radial-glow-1 {
+            background: radial-gradient(circle, rgba(217, 70, 239, 0.16) 0%, rgba(0,0,0,0) 70%);
+        }
+        .radial-glow-2 {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.14) 0%, rgba(0,0,0,0) 70%);
+        }
+        .radial-glow-3 {
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.12) 0%, rgba(0,0,0,0) 70%);
+        }
+
+        /* Glassmorphism Panels */
+        .glass-panel {
+            background: rgba(8, 12, 22, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Premium glowing card classes on hover */
+        .neon-card-cyan {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .neon-card-cyan:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.15),
+                        inset 0 0 15px rgba(6, 182, 212, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .neon-card-purple {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .neon-card-purple:hover {
+            border-color: rgba(217, 70, 239, 0.4);
+            box-shadow: 0 0 25px rgba(217, 70, 239, 0.15),
+                        inset 0 0 15px rgba(217, 70, 239, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .neon-card-pink {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .neon-card-pink:hover {
+            border-color: rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.15),
+                        inset 0 0 15px rgba(244, 63, 94, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* Glowing Text Effects */
+        .text-glow-cyan {
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+        }
+        .text-glow-purple {
+            text-shadow: 0 0 12px rgba(217, 70, 239, 0.4);
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
+        }
+
+        /* Animations */
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.03); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* Highly Targeted Print Layout Style overrides */
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+            #resume-print-content, #resume-print-content * {
+                visibility: visible !important;
+            }
+            #resume-print-content {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 30px !important;
+                background: white !important;
+                color: black !important;
+            }
+            .no-print-element {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen font-sans selection:bg-cyan-500 selection:text-white cyber-grid">
+
+    <!-- Ambient Glow Blobs background -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-10 left-[10%] w-[500px] h-[500px] radial-glow-1 animate-pulse-slow"></div>
+        <div class="absolute top-[35%] right-[10%] w-[600px] h-[600px] radial-glow-2 animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[20%] left-[15%] w-[500px] h-[500px] radial-glow-3 animate-pulse-slow" style="animation-delay: 4s;"></div>
+        <div class="absolute bottom-10 right-[25%] w-[450px] h-[450px] radial-glow-1 animate-pulse-slow" style="animation-delay: 1s;"></div>
+    </div>
+
+    <!-- Active Canvas Particle Field Behind Content -->
+    <canvas id="particleCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-30"></canvas>
+
+    <!-- TOAST NOTIFICATIONS CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[100] flex flex-col gap-3 max-w-sm w-full pointer-events-none"></div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 w-full z-50 glass-panel border-b border-white/10 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPurple to-neonCyan flex items-center justify-center shadow-neon-purple transition-transform group-hover:rotate-12 duration-300">
+                    <span class="text-white font-bold font-display text-xl">V</span>
+                </div>
+                <span class="text-white font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:to-neonCyan transition-all duration-300">
+                    VINEET<span class="text-neonCyan">.DEV</span>
+                </span>
+            </a>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/5 transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="#hero" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Home</a>
+                <a href="#about" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">About</a>
+                <a href="#skills" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Skills</a>
+                <a href="#projects" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Projects</a>
+                <a href="#experience" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Journey</a>
+                <a href="#resume" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Resume</a>
+                <a href="#contact" class="px-3 py-2 text-sm font-semibold text-gray-300 hover:text-neonCyan transition-colors rounded-lg hover:bg-white/5">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/10 px-4 py-4 space-y-2">
+            <a href="#hero" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Skills</a>
+            <a href="#projects" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Projects</a>
+            <a href="#experience" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Journey</a>
+            <a href="#resume" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Resume</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-white/5 hover:text-neonCyan">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-12 pb-32">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[85vh] flex flex-col justify-center items-center text-center pt-8 md:pt-16 no-print">
+            <div class="space-y-6 max-w-4xl relative">
+                <!-- Glowing Profile Circle/Badge with Formal Neon Ring -->
+                <div class="mx-auto w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-neonPurple via-neonPink to-neonCyan p-1 shadow-neon-cyan animate-float">
+                    <div class="w-full h-full rounded-full bg-[#05070c] flex items-center justify-center overflow-hidden border border-white/10">
+                        <i class="fa-solid fa-user-tie text-4xl text-neonCyan text-glow-cyan"></i>
+                    </div>
+                </div>
+
+                <!-- Glowing Formal Headline Tag -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-neonCyan/30 text-neonCyan text-xs font-semibold tracking-wider uppercase shadow-neon-cyan">
+                    <span class="w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+                    <span id="hero-mini-tag" class="tracking-[0.1em] font-display">VINEET MAHESHWARI • AI & WEB ENGINEERING</span>
+                </div>
+
+                <!-- Rich Gradient Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-none text-white">
+                    Hi, I'm <span class="bg-gradient-to-r from-neonCyan via-neonPurple to-neonPink bg-clip-text text-transparent text-glow-purple">Vineet Maheshwari</span> <br>
+                    <span class="text-xl sm:text-2xl lg:text-3xl font-normal text-gray-300 mt-5 block tracking-wide">
+                        IT Scholar at <span class="text-neonCyan font-semibold text-glow-cyan">IIIT Bhopal</span> & Generative AI Pioneer
+                    </span>
+                </h1>
+
+                <!-- Professional Sub-descriptor -->
+                <p id="hero-description" class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Undergraduate specialized in Machine Learning, Deep Learning, and building responsive full-stack pipelines with <span class="text-neonPurple font-semibold text-glow-purple">FastAPI & React.js</span>. Maintaining an elite <span class="text-neonPink font-semibold">9.02 CGPA</span> and driven by real-world system optimization.
+                </p>
+
+                <!-- Interactive Rotating Typing Target -->
+                <div class="text-neonCyan font-mono text-sm sm:text-base font-semibold tracking-wider">
+                    Developing <span id="hero-typing-target" class="text-white font-bold bg-darkCard px-3 py-1.5 rounded-lg border border-neonCyan/20 shadow-neon-cyan/10">AI Systems & Web Apps</span><span class="animate-pulse text-neonCyan">|</span>
+                </div>
+
+                <!-- Action Button Matrix -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-neonPurple to-neonCyan hover:from-neonCyan hover:to-neonPurple rounded-xl font-bold text-white transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan flex items-center justify-center gap-2 hover:scale-105">
+                        Explore My Work <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 glass-panel hover:bg-white/5 rounded-xl font-bold text-gray-300 hover:text-white border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-2">
+                        Get In Touch <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- Live Dashboard Quick Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-12">
+                    <div class="glass-panel neon-card-cyan p-4 rounded-xl text-center">
+                        <div id="stat-years" class="text-3xl font-bold font-display text-neonCyan text-glow-cyan">9.02</div>
+                        <div class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-semibold">Cumulative GPA</div>
+                    </div>
+                    <div class="glass-panel neon-card-purple p-4 rounded-xl text-center">
+                        <div id="stat-projects" class="text-3xl font-bold font-display text-neonPurple text-glow-purple">2 Star</div>
+                        <div class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-semibold">@CodeChef Coder</div>
+                    </div>
+                    <div class="glass-panel neon-card-pink p-4 rounded-xl text-center">
+                        <div id="stat-uptime" class="text-3xl font-bold font-display text-neonPink text-glow-pink">98.3%</div>
+                        <div class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-semibold">JEE Mains Percentile</div>
+                    </div>
+                    <div class="glass-panel neon-card-cyan p-4 rounded-xl text-center">
+                        <div id="stat-commits" class="text-3xl font-bold font-display text-white">10+</div>
+                        <div class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider font-semibold">Hackathons Played</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="scroll-mt-24 no-print">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Area -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-1 bg-neonPurple rounded-full shadow-neon-purple/50"></span>
+                        <h2 class="text-3xl font-display font-bold text-white tracking-tight">Behind The Code</h2>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-200">
+                        Bridging rigorous systems engineering with cutting-edge Machine Learning and Web Interfaces.
+                    </h3>
+                    <div id="about-text-container" class="space-y-4 text-gray-400 leading-relaxed text-base">
+                        <p>
+                            I build architectures that adapt and predict. As an Information Technology undergraduate at Indian Institute of Information Technology (IIIT), Bhopal, I combine mathematical foundations with state-of-the-art Generative AI frameworks.
+                        </p>
+                        <p>
+                            From building next-generation accessibility portals powered by Gemini & HuggingFace API integrations to developing neural-driven heart disease predictor pipelines with Scikit-learn, my focus is delivering clean code and high-performance user experiences.
+                        </p>
+                    </div>
+
+                    <!-- Glowing Milestones / Fast facts -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-neonCyan/10 border border-neonCyan/30 flex items-center justify-center text-neonCyan flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Generative AI & LLMs</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Experienced in prompt mechanics, RAG setups, and HuggingFace pipelines.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-neonPurple/10 border border-neonPurple/30 flex items-center justify-center text-neonPurple flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">FastAPI & Node.js</h4>
+                                <p class="text-xs text-gray-400 mt-0.5">Deploying lightning-fast background routers for predictive analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Area: Glass-morphic interactive card stack -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-3xl overflow-hidden glass-panel border border-neonPurple/20 p-4 shadow-neon-purple animate-float">
+                        <!-- Simulated Profile Image Canvas/Placeholder -->
+                        <div class="w-full h-full rounded-2xl bg-gradient-to-b from-darkBg via-gray-950 to-darkCard relative overflow-hidden flex flex-col justify-end p-6 border border-white/5">
+                            <!-- Animated Cosmic Background inside Profile -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-neonPurple/25 via-transparent to-neonCyan/20 z-0"></div>
+                            
+                            <!-- Neon Geometric shapes -->
+                            <div class="absolute top-10 right-10 w-24 h-24 rounded-full border border-dashed border-neonCyan/40 animate-spin" style="animation-duration: 20s;"></div>
+                            <div class="absolute bottom-24 left-10 w-16 h-16 bg-neonPink/15 rounded-xl blur-lg"></div>
+
+                            <!-- User info inside floating dynamic mockup -->
+                            <div class="relative z-10 space-y-3">
+                                <div class="w-12 h-12 rounded-full border-2 border-neonCyan flex items-center justify-center bg-darkBg shadow-neon-cyan">
+                                    <i class="fa-solid fa-code text-neonCyan text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 id="about-card-name" class="font-display font-bold text-white text-xl">Vineet Maheshwari</h4>
+                                    <p id="about-card-title" class="text-xs font-semibold tracking-wide text-neonCyan mt-0.5 uppercase">IT Student @ IIIT Bhopal</p>
+                                </div>
+                                <div class="flex items-center gap-2 pt-2 text-xs text-gray-400 border-t border-white/10">
+                                    <i class="fa-solid fa-location-dot text-neonPink"></i>
+                                    <span id="about-card-loc">Aligarh, UP, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS MATRIX SECTION -->
+        <section id="skills" class="scroll-mt-24 no-print">
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-1 bg-neonCyan rounded-full shadow-neon-cyan/50"></span>
+                            <h2 class="text-3xl font-display font-bold text-white tracking-tight">Skills Matrix</h2>
+                        </div>
+                        <p class="text-gray-400 max-w-lg">
+                            An overview of technology suites, libraries, and application frequencies.
+                        </p>
+                    </div>
+                    <!-- Skill Tabs filters -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterSkills('all')" class="skill-tab-btn active px-4 py-2 bg-neonPurple text-white rounded-lg text-xs font-semibold tracking-wider transition-all">ALL</button>
+                        <button onclick="filterSkills('frontend')" class="skill-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">LANGUAGES/WEB</button>
+                        <button onclick="filterSkills('backend')" class="skill-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">FRAMEWORKS/DB</button>
+                        <button onclick="filterSkills('tools')" class="skill-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">AI/DATA SCIENCE</button>
+                    </div>
+                </div>
+
+                <!-- Skill Grid Container -->
+                <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Standard Skills populated dynamically from JS array -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="scroll-mt-24 no-print">
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-1 bg-neonPink rounded-full shadow-neon-pink/50"></span>
+                            <h2 class="text-3xl font-display font-bold text-white tracking-tight">Featured Projects</h2>
+                        </div>
+                        <p class="text-gray-400 max-w-lg">
+                            Explore active deployments, live backend models, and functional open-source code repositories.
+                        </p>
+                    </div>
+                    <!-- Projects filter tabs -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterProjects('all')" class="proj-tab-btn active px-4 py-2 bg-neonPink text-white rounded-lg text-xs font-semibold tracking-wider transition-all">ALL WORK</button>
+                        <button onclick="filterProjects('ai')" class="proj-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">GEN AI & LLMS</button>
+                        <button onclick="filterProjects('ml')" class="proj-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">MACHINE LEARNING</button>
+                        <button onclick="filterProjects('web')" class="proj-tab-btn px-4 py-2 bg-white/5 text-gray-400 hover:text-white rounded-lg text-xs font-semibold tracking-wider transition-all">INTERACTIVE GAMES</button>
+                    </div>
+                </div>
+
+                <!-- Projects grid list -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic project cards live populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE & TIMELINE -->
+        <section id="experience" class="scroll-mt-24 no-print">
+            <div class="space-y-12">
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <span class="w-8 h-1 bg-neonPurple rounded-full shadow-neon-purple/50"></span>
+                        <h2 class="text-3xl font-display font-bold text-white tracking-tight">Educational & Hackathon Journey</h2>
+                    </div>
+                    <p class="text-gray-400 max-w-lg">
+                        An organic review of academic milestones, hackathon achievements, and project highlights.
+                    </p>
+                </div>
+
+                <!-- The Vertical Glowing Timeline -->
+                <div class="relative border-l border-white/10 ml-4 md:ml-6 space-y-12 py-4">
+                    <!-- Experience Blocks populated dynamically from JS data -->
+                    <div id="experience-list" class="space-y-10"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+        <section id="certifications" class="scroll-mt-24 no-print">
+            <div class="space-y-12">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-1 bg-neonCyan rounded-full shadow-neon-cyan/50"></span>
+                        <h2 class="text-3xl font-display font-bold text-white tracking-tight">Achievements & Merits</h2>
+                    </div>
+                    <p class="text-gray-400 max-w-lg">
+                        National Olympiad rankings, hackathon finalist badges, and competitive programming standing.
+                    </p>
+                </div>
+
+                <div id="certs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Certificates cards populated by script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME SECTION -->
+        <section id="resume" class="scroll-mt-24 no-print">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-neonPurple/20 relative overflow-hidden text-center max-w-4xl mx-auto shadow-neon-purple/5">
+                <div class="absolute -top-10 -right-10 w-48 h-48 bg-neonPurple/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-neonCyan/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="space-y-8 relative z-10">
+                    <!-- Icon -->
+                    <div class="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-tr from-neonPurple to-neonCyan flex items-center justify-center text-white text-2xl shadow-neon-purple">
+                        <i class="fa-solid fa-file-word animate-pulse"></i>
+                    </div>
+
+                    <!-- Texts -->
+                    <div class="space-y-3">
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">Official Resume Download & Print</h2>
+                        <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                            My official professional resume <span class="text-neonCyan font-mono font-semibold text-glow-cyan">VineetResumeNew.pdf</span> is loaded and ready for direct local execution, print layouts, and HR routing.
+                        </p>
+                    </div>
+
+                    <!-- Quick Metadata Pills -->
+                    <div class="flex flex-wrap justify-center gap-3 text-xs text-gray-400">
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full flex items-center gap-1.5 font-mono">
+                            <i class="fa-solid fa-file-signature text-neonCyan"></i> Resume
+                        </span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full flex items-center gap-1.5 font-mono">
+                            <i class="fa-solid fa-microchip text-neonPurple"></i> AI & Web Stack Focus
+                        </span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full flex items-center gap-1.5 font-mono">
+                            <i class="fa-solid fa-calendar-check text-neonPink"></i> Updated 2026
+                        </span>
+                    </div>
+
+                    <!-- Direct Actions -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto pt-2">
+                        <a href="VineetResumeNew.pdf" download="VineetResumeNew.pdf" class="w-full sm:w-1/2 px-6 py-4 bg-gradient-to-r from-neonPurple to-neonCyan hover:from-neonCyan hover:to-neonPurple text-white font-bold rounded-xl transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan flex items-center justify-center gap-2 text-sm hover:scale-[1.03]">
+                            <i class="fa-solid fa-download"></i> Download Resume
+                        </a>
+                        <button onclick="openResumePreviewModal()" class="w-full sm:w-1/2 px-6 py-4 bg-white/5 hover:bg-white/10 text-gray-300 font-bold rounded-xl border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 text-sm hover:scale-[1.03]">
+                            <i class="fa-solid fa-eye animate-pulse text-neonCyan"></i> Printable Preview
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & DIRECT MAILING SECTION -->
+        <section id="contact" class="scroll-mt-24 no-print">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Details Area -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-1 bg-neonCyan rounded-full shadow-neon-cyan/50"></span>
+                        <h2 class="text-3xl font-display font-bold text-white tracking-tight">Get In Touch</h2>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Interested in collaboration, internship positions, or deep technical consultations? Shoot an inquiry here or connect with me directly through my social handles.
+                    </p>
+
+                    <!-- Fast Contact Coordinates -->
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4 p-4 rounded-xl glass-panel neon-card-cyan transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-neonCyan/10 border border-neonCyan/30 flex items-center justify-center text-neonCyan shadow-neon-cyan/10">
+                                <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Mail Direct</div>
+                                <a id="contact-info-mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=vineetmaheshwari23092005@gmail.com" target="_blank" class="text-sm font-bold text-white hover:text-neonCyan transition-all">vineetmaheshwari23092005@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 rounded-xl glass-panel neon-card-purple transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-neonPurple/10 border border-neonPurple/30 flex items-center justify-center text-neonPurple shadow-neon-purple/10">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Instant Telephony</div>
+                                <a id="contact-info-tel" href="tel:+917455908236" class="text-sm font-bold text-white hover:text-neonPurple transition-all">+91 7455908236</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Social Connect Nodes -->
+                    <div class="flex items-center gap-3 pt-6">
+                        <a href="https://github.com/Vineet2309" target="_blank" class="w-10 h-10 rounded-xl glass-panel hover:bg-neonPurple text-gray-400 hover:text-white border border-white/10 hover:border-neonPurple/50 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-110"><i class="fa-brands fa-github text-lg"></i></a>
+                        <a href="https://linkedin.com/in/vineet-maheshwari-408209321" target="_blank" class="w-10 h-10 rounded-xl glass-panel hover:bg-neonCyan text-gray-400 hover:text-white border border-white/10 hover:border-neonCyan/50 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-110"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vineetmaheshwari23092005@gmail.com" target="_blank" class="w-10 h-10 rounded-xl glass-panel hover:bg-neonPink text-gray-400 hover:text-white border border-white/10 hover:border-neonPink/50 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-110"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Advanced Rich Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-panel border border-neonCyan/20 rounded-2xl p-6 sm:p-8 space-y-6 shadow-neon-cyan/5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase text-gray-400 tracking-wider">Your Name <span class="text-neonPink">*</span></label>
+                                <input required type="text" id="form-name" placeholder="John Doe" class="w-full px-4 py-3 bg-darkBg/80 border border-white/10 hover:border-neonCyan/40 focus:border-neonCyan/80 focus:ring-1 focus:ring-neonCyan/80 focus:outline-none rounded-xl text-sm text-white transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase text-gray-400 tracking-wider">Email Coordinates <span class="text-neonPink">*</span></label>
+                                <input required type="email" id="form-email" placeholder="john@enterprise.com" class="w-full px-4 py-3 bg-darkBg/80 border border-white/10 hover:border-neonCyan/40 focus:border-neonCyan/80 focus:ring-1 focus:ring-neonCyan/80 focus:outline-none rounded-xl text-sm text-white transition-all">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase text-gray-400 tracking-wider">Inquiry Subject <span class="text-neonPink">*</span></label>
+                            <input required type="text" id="form-subject" placeholder="Internships, projects, etc." class="w-full px-4 py-3 bg-darkBg/80 border border-white/10 hover:border-neonCyan/40 focus:border-neonCyan/80 focus:ring-1 focus:ring-neonCyan/80 focus:outline-none rounded-xl text-sm text-white transition-all">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase text-gray-400 tracking-wider">Inquiry Narrative <span class="text-neonPink">*</span></label>
+                            <textarea required id="form-message" rows="4" placeholder="Briefly describe your requirements or opportunities..." class="w-full px-4 py-3 bg-darkBg/80 border border-white/10 hover:border-neonCyan/40 focus:border-neonCyan/80 focus:ring-1 focus:ring-neonCyan/80 focus:outline-none rounded-xl text-sm text-white transition-all"></textarea>
+                        </div>
+
+                        <!-- Submit Button with loading status state and glow -->
+                        <button type="submit" id="form-submit-btn" class="w-full py-4 bg-gradient-to-r from-neonCyan to-neonPurple hover:from-neonPurple hover:to-neonCyan rounded-xl font-bold text-white transition-all duration-300 shadow-neon-cyan hover:shadow-neon-purple flex items-center justify-center gap-2 hover:scale-[1.01]">
+                            <i class="fa-solid fa-envelope"></i> Open in Gmail Compose
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-[#04060c] py-8 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div>&copy; 2026 Vineet Maheshwari. Code verified.</div>
+            <div class="flex gap-4">
+                <a href="#hero" class="hover:text-neonCyan transition-all">Back to Summit</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT MODAL POPUP -->
+    <div id="project-modal" class="fixed inset-0 z-50 overflow-y-auto hidden no-print" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-darkBg/80 backdrop-blur-md transition-opacity" onclick="closeProjectModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="inline-block align-bottom glass-panel rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-white/15">
+                <div class="p-6 bg-darkCard border-b border-white/10 flex items-center justify-between">
+                    <h3 id="p-modal-title" class="text-xl font-bold font-display text-white">Project Title</h3>
+                    <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-all">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <!-- Modal Body -->
+                <div class="p-6 space-y-6">
+                    <div id="p-modal-img-container" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-darkBg">
+                        <img id="p-modal-img" src="" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2" id="p-modal-tags">
+                            <!-- Tags loaded here -->
+                        </div>
+                        <p id="p-modal-desc" class="text-gray-300 text-sm leading-relaxed">
+                            Detailed project description narrative.
+                        </p>
+                    </div>
+                </div>
+                <!-- Action bar footer -->
+                <div class="p-6 bg-darkCard border-t border-white/10 flex justify-between items-center">
+                    <button onclick="closeProjectModal()" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 font-bold text-xs rounded-xl transition-all">Close</button>
+                    <div class="flex flex-wrap gap-2">
+                        <a id="p-modal-link-git" href="#" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 font-bold text-xs rounded-xl border border-white/10 transition-all flex items-center gap-2">
+                            <i class="fa-brands fa-github"></i> Repository
+                        </a>
+                        <a id="p-modal-link-fastapi" href="#" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-neonCyan font-bold text-xs rounded-xl border border-neonCyan/30 transition-all flex items-center gap-2 hidden">
+                            <i class="fa-solid fa-gears"></i> FastAPI Backend
+                        </a>
+                        <a id="p-modal-link-demo" href="#" target="_blank" class="px-5 py-2 bg-gradient-to-r from-neonCyan to-neonPurple text-white font-bold text-xs rounded-xl transition-all flex items-center gap-2 shadow-neon-cyan">
+                            <i class="fa-solid fa-globe"></i> Visit Live Deployment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRINTABLE RESUME PREVIEW MODAL -->
+    <div id="resume-preview-modal" class="fixed inset-0 z-50 overflow-y-auto hidden no-print" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Modal backdrop -->
+            <div class="fixed inset-0 bg-darkBg/90 backdrop-blur-md transition-opacity" onclick="closeResumePreviewModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            
+            <!-- Modal Body Container -->
+            <div class="inline-block align-bottom glass-panel rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border border-white/15">
+                
+                <!-- Action bar header -->
+                <div class="p-6 bg-darkCard border-b border-white/10 flex flex-wrap justify-between items-center gap-4 no-print-element">
+                    <div>
+                        <h3 class="text-lg font-bold font-display text-white">Printable Resume Preview</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Simulating standard A4 page grid. Feel free to export to paper or virtual PDF printers.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="triggerResumePrint()" class="px-5 py-2.5 bg-gradient-to-r from-neonPurple to-neonCyan text-white font-bold text-xs rounded-xl transition-all flex items-center gap-2 shadow-neon-purple hover:brightness-110">
+                            <i class="fa-solid fa-print"></i> Print / Save PDF
+                        </button>
+                        <button onclick="closeResumePreviewModal()" class="px-4 py-2.5 bg-white/5 hover:bg-white/10 text-gray-300 font-bold text-xs rounded-xl border border-white/10 transition-all">
+                            Close Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Simulated paper container -->
+                <div class="p-4 sm:p-10 max-h-[70vh] overflow-y-auto bg-white text-slate-900 scroll-smooth">
+                    <div id="resume-print-content" class="bg-white text-slate-900 max-w-3xl mx-auto space-y-6 font-sans">
+                        
+                        <!-- Paper Header -->
+                        <div class="text-center pb-5 border-b-2 border-slate-900">
+                            <h3 class="text-3xl font-bold tracking-wider text-slate-900">VINEET MAHESHWARI</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm font-semibold mt-1 tracking-wide uppercase">BTech in Information Technology — Indian Institute of Information Technology, Bhopal</p>
+                            
+                            <!-- Address & Contact metadata row -->
+                            <div class="flex flex-wrap justify-center items-center gap-y-1 gap-x-4 text-xs text-slate-500 mt-3">
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-[10px]"></i> Aligarh, Uttar Pradesh, India</span>
+                                <span class="hidden sm:inline text-slate-300">•</span>
+                                <a href="tel:+917455908236" class="hover:text-slate-900 transition-colors flex items-center gap-1"><i class="fa-solid fa-phone text-[10px]"></i> +91 7455908236</a>
+                                <span class="hidden sm:inline text-slate-300">•</span>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vineetmaheshwari23092005@gmail.com" target="_blank" class="hover:text-slate-900 transition-colors flex items-center gap-1 underline"><i class="fa-solid fa-envelope text-[10px]"></i> vineetmaheshwari23092005@gmail.com</a>
+                            </div>
+                            <div class="flex flex-wrap justify-center items-center gap-y-1 gap-x-4 text-xs text-slate-500 mt-1.5">
+                                <a href="https://github.com/Vineet2309" target="_blank" class="hover:text-slate-900 transition-colors flex items-center gap-1 underline"><i class="fa-brands fa-github text-[10px]"></i> github.com/Vineet2309</a>
+                                <span class="hidden sm:inline text-slate-300">•</span>
+                                <a href="https://linkedin.com/in/vineet-maheshwari-408209321" target="_blank" class="hover:text-slate-900 transition-colors flex items-center gap-1 underline"><i class="fa-brands fa-linkedin text-[10px]"></i> linkedin.com/in/vineet-maheshwari-408209321</a>
+                            </div>
+                        </div>
+
+                        <!-- Education Block -->
+                        <div class="space-y-2 text-left">
+                            <h4 class="text-sm font-bold tracking-wider text-slate-900 border-b border-slate-300 pb-1 uppercase">EDUCATION</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-start text-xs sm:text-sm">
+                                    <div>
+                                        <h5 class="font-bold text-slate-800">Indian Institute of Information Technology, Bhopal</h5>
+                                        <p class="text-slate-600 font-semibold text-xs mt-0.5">Bachelor of Technology in Information Technology</p>
+                                        <p class="text-slate-500 text-xs mt-1">Major in Information Technology; Minors in Mathematics and Statistics</p>
+                                        <p class="text-slate-500 text-xs font-semibold mt-1">Relevant Coursework: <span class="text-slate-600 font-normal">Data Analysis and Management, Software Engineering; Operating Systems; Algorithms; Artificial Intelligence</span></p>
+                                    </div>
+                                    <div class="text-right text-xs shrink-0">
+                                        <span class="font-bold text-slate-900 block">Expected May 2028</span>
+                                        <span class="text-slate-900 block font-bold font-mono mt-1 text-sm">GPA: 9.02 / 10.0</span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-dashed border-slate-200">
+                                    <div class="flex justify-between items-start text-xs">
+                                        <div>
+                                            <h5 class="font-bold text-slate-800">Dharam Samaj Bal Mandir Senior Secondary School, Aligarh</h5>
+                                            <p class="text-slate-500 text-xs mt-0.5">Intermediate (12th Class)</p>
+                                        </div>
+                                        <div class="text-right text-slate-400 font-mono">Jul 2022 - Jul 2023</div>
+                                    </div>
+                                    <div class="flex justify-between items-start text-xs">
+                                        <div>
+                                            <h5 class="font-bold text-slate-800">Dharam Samaj Bal Mandir Senior Secondary School, Aligarh</h5>
+                                            <p class="text-slate-500 text-xs mt-0.5">High School (10th Class)</p>
+                                        </div>
+                                        <div class="text-right text-slate-400 font-mono">Jul 2020 - Jul 2021</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Skills Block -->
+                        <div class="space-y-2 text-left">
+                            <h4 class="text-sm font-bold tracking-wider text-slate-900 border-b border-slate-300 pb-1 uppercase">TECHNICAL SKILLS</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
+                                <div><strong class="text-slate-800">Programming Languages:</strong> <span class="text-slate-600">C, Java, Python, HTML, CSS, JavaScript</span></div>
+                                <div><strong class="text-slate-800">Frameworks & Tools:</strong> <span class="text-slate-600">Fast API, Node.js, React.js, Git, VS Code</span></div>
+                                <div><strong class="text-slate-800">Libraries:</strong> <span class="text-slate-600">NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn</span></div>
+                                <div><strong class="text-slate-800">Database:</strong> <span class="text-slate-600">MySQL, MongoDB (Basics)</span></div>
+                                <div><strong class="text-slate-800">Core Areas:</strong> <span class="text-slate-600">Data Structures & Algorithms, Machine Learning, Deep Learning, LLMs, Generative AI, RAG, Web Development</span></div>
+                                <div><strong class="text-slate-800">Competitive Coding:</strong> <span class="text-slate-600">2 star @codechef</span></div>
+                                <div><strong class="text-slate-800">Soft Skills:</strong> <span class="text-slate-600">Leadership, Collaboration, Analytical Thinking, Adaptability</span></div>
+                                <div><strong class="text-slate-800">Languages:</strong> <span class="text-slate-600">Comfortable in Hindi and English</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Projects Block -->
+                        <div class="space-y-2 text-left">
+                            <h4 class="text-sm font-bold tracking-wider text-slate-900 border-b border-slate-300 pb-1 uppercase">PROJECTS</h4>
+                            <div class="space-y-3.5 text-xs">
+                                <!-- Access AI -->
+                                <div class="space-y-1">
+                                    <div class="flex justify-between items-start gap-4">
+                                        <h5 class="font-bold text-slate-800">Access AI <span class="text-[9px] text-slate-500 font-mono ml-2 border border-slate-300 px-1 rounded">React.js, Node.js, FastAPI, GenAI, HuggingFace</span></h5>
+                                        <div class="text-slate-500 space-x-2 shrink-0">
+                                            <a href="https://accessibility-agent-xs4p.onrender.com" target="_blank" class="hover:underline">Live Link</a>
+                                            <span>|</span>
+                                            <a href="https://accessibility-agent-146x.onrender.com" target="_blank" class="hover:underline">FastAPI Link</a>
+                                            <span>|</span>
+                                            <a href="https://github.com/Vineet2309/accessibility-agent" target="_blank" class="hover:underline">GitHub</a>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-600 leading-relaxed text-xs">
+                                        A next-generation accessibility platform designed to break down barriers to digital information. Powered by React, Node.js, Python (FastAPI), and cutting-edge LLMs (Gemini & Hugging Face).
+                                    </p>
+                                </div>
+
+                                <!-- Heart Disease Prediction -->
+                                <div class="space-y-1 pt-2 border-t border-slate-100">
+                                    <div class="flex justify-between items-start gap-4">
+                                        <h5 class="font-bold text-slate-800">Heart Disease Prediction Model <span class="text-[9px] text-slate-500 font-mono ml-2 border border-slate-300 px-1 rounded">Python, Scikit-learn, FastAPI</span></h5>
+                                        <div class="text-slate-500 space-x-2 shrink-0">
+                                            <a href="https://heartdiseaseprediction-ybj7.onrender.com" target="_blank" class="hover:underline">Live Link</a>
+                                            <span>|</span>
+                                            <a href="https://heartdiseasefastapi.onrender.com/predict" target="_blank" class="hover:underline">FastAPI Link</a>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-600 leading-relaxed text-xs">
+                                        Implemented Logistic Regression, Random Forest, Naïve Bayes, and KNN models achieving 87% accuracy. Conducted advanced preprocessing, feature scaling, and comparative analysis of classification models.
+                                    </p>
+                                </div>
+
+                                <!-- Mines Tile Game -->
+                                <div class="space-y-1 pt-2 border-t border-slate-100">
+                                    <div class="flex justify-between items-start gap-4">
+                                        <h5 class="font-bold text-slate-800">Interactive Mines/Tile Prediction Game <span class="text-[9px] text-slate-500 font-mono ml-2 border border-slate-300 px-1 rounded">HTML, CSS, JavaScript</span></h5>
+                                        <div class="text-slate-500 space-x-2 shrink-0">
+                                            <a href="https://fun-guess-game.onrender.com" target="_blank" class="hover:underline">Live Link</a>
+                                            <span>|</span>
+                                            <a href="https://github.com/Vineet2309/GuessGame" target="_blank" class="hover:underline">GitHub Link</a>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-600 leading-relaxed text-xs">
+                                        Developed an arcade-style tile guessing game where players iteratively choose tiles to reveal either a Win (W) or a Loss (L), with the option to withdraw points after each successful discovery.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements Block -->
+                        <div class="space-y-2 text-left pb-4">
+                            <h4 class="text-sm font-bold tracking-wider text-slate-900 border-b border-slate-300 pb-1 uppercase">ACHIEVEMENTS</h4>
+                            <ul class="list-disc pl-5 text-xs text-slate-600 space-y-1 leading-relaxed">
+                                <li><strong>JEE Mains Distinction (2024):</strong> Achieved an outstanding <strong class="text-slate-900 font-mono">98.30 percentile</strong>, securing a national rank of 26k among 1.4 million aspirants.</li>
+                                <li><strong>Hackorbit National Stage:</strong> Hackorbit 2025 Certificate – National Hackathon Finalist.</li>
+                                <li><strong>National hackathons:</strong> Obtained over 10+ Hackathon Participation Certificates via the Unstop platform.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CORE BUSINESS LOGIC & UI GENERATORS -->
+    <script type="module">
+        // Standard data maps for Vineet Maheshwari
+        const profileData = {
+            name: "Vineet Maheshwari",
+            title: "AI Engineer & Full-Stack Developer",
+            heroTag: "VINEET MAHESHWARI • AI & WEB ENGINEERING",
+            aboutText: `<p>I am an Information Technology undergraduate at Indian Institute of Information Technology (IIIT), Bhopal (GPA: 9.02/10.0) with a strong passion for Machine Learning, Generative AI models, and robust Full-Stack development.</p>
+                        <p>My background bridges academic excellence (98.30 percentile in JEE Mains) with hands-on systems engineering, from building next-generation accessibility portals utilizing LLMs to designing heart disease classification models using Scikit-learn.</p>`,
+            location: "Aligarh, UP, India",
+            email: "vineetmaheshwari23092005@gmail.com",
+            phone: "+91 7455908236",
+            website: "github.com/Vineet2309",
+            statement: "IT Scholar at IIIT Bhopal specializing in Machine Learning, Deep Learning, LLMs, and high-performance React & FastAPI cloud architectures. Maintaining a 9.02 CGPA."
+        };
+
+        const experiencesData = [
+            { id: 1, title: "B.Tech in Information Technology", company: "Indian Institute of Information Technology, Bhopal", duration: "Expected May 2028", desc: "GPA: 9.02/10.0. Minors in Mathematics and Statistics. Pursuing core subjects: Software Engineering, Data Analysis, Artificial Intelligence, and Advanced Algorithms." },
+            { id: 2, title: "National Finalist - Hackorbit 2025", company: "Hackorbit National Stage", duration: "Feb 2025", desc: "Designed accessibility and AI interfaces. Earned participation certificates in over 10+ state and national hackathons via the Unstop platform." },
+            { id: 3, title: "High School & Intermediate", company: "Dharam Samaj Bal Mandir Senior Secondary School, Aligarh", duration: "Jul 2020 - Jul 2023", desc: "Graduated with top academic percentile. Achieved 98.30 percentile (26k Rank out of 1.4 million applicants) in JEE Mains 2024." }
+        ];
+
+        // Toast Manager
+        window.showToast = function(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-xl shadow-lg border text-xs font-semibold tracking-wide flex items-center justify-between gap-3 transform translate-y-2 opacity-0 transition-all duration-300 pointer-events-auto max-w-sm `;
+            
+            if (type === 'success') {
+                toast.className += 'bg-darkCard border-neonCyan/50 text-neonCyan shadow-neon-cyan';
+            } else if (type === 'error') {
+                toast.className += 'bg-darkCard border-neonPink/50 text-neonPink shadow-neon-pink';
+            } else {
+                toast.className += 'bg-darkCard border-neonPurple/50 text-neonPurple shadow-neon-purple';
+            }
+
+            toast.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="${type === 'success' ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-exclamation'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
+            `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => { toast.remove(); }, 300);
+            }, 4000);
+        };
+
+        // Submission dispatcher for Direct Inquiries - Direct redirection to Gmail Client
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('form-submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Preparing Gmail Compose...`;
+
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const subject = document.getElementById('form-subject').value;
+            const message = document.getElementById('form-message').value;
+
+            try {
+                // Direct redirection to Gmail compose window with pre-filled contents targeting Vineet's exact email address
+                const targetEmail = "vineetmaheshwari23092005@gmail.com";
+                const emailSubject = `[Inquiry from Portfolio] ${subject}`;
+                
+                let emailBody = `Dear Vineet Maheshwari,\n\n`;
+                emailBody += `${message}\n\n`;
+                emailBody += `Best regards,\n`;
+                emailBody += `${name}\n`;
+                emailBody += `My Email Address: ${email}\n\n`;
+                emailBody += `---\nSent via Portfolio Contact Form`;
+
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                if (isMobile) {
+                    // Mobile Redirect (Native Mailto protocol)
+                    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoUrl;
+                } else {
+                    // Desktop Redirect (Pre-populated Web Gmail client)
+                    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(targetEmail)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.open(gmailComposeUrl, '_blank');
+                }
+
+                window.showToast("Gmail Compose window spawned successfully!");
+                document.getElementById('contact-form').reset();
+            } catch (err) {
+                console.error("Redirection failure: ", err);
+                window.showToast("Redirection issue. Standard mailto triggered.", "error");
+                window.location.href = `mailto:vineetmaheshwari23092005@gmail.com?subject=Inquiry&body=${encodeURIComponent(message)}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-envelope"></i> Open in Gmail Compose`;
+            }
+        });
+
+        // UI rendering functions
+        function loadDynamicUiElements() {
+            const prof = profileData;
+            
+            document.getElementById('hero-mini-tag').innerText = prof.heroTag;
+            document.getElementById('hero-description').innerText = prof.statement;
+            
+            document.getElementById('about-text-container').innerHTML = prof.aboutText;
+            document.getElementById('about-card-name').innerText = prof.name;
+            document.getElementById('about-card-title').innerText = prof.title;
+            document.getElementById('about-card-loc').innerText = prof.location;
+
+            // Updated load binder to route to web Gmail composer
+            document.getElementById('contact-info-mail').href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + prof.email;
+            document.getElementById('contact-info-mail').target = "_blank";
+            document.getElementById('contact-info-mail').innerText = prof.email;
+            
+            document.getElementById('contact-info-tel').href = `tel:${prof.phone}`;
+            document.getElementById('contact-info-tel').innerText = prof.phone;
+
+            renderExperiences();
+        }
+
+        function renderExperiences() {
+            const listElement = document.getElementById('experience-list');
+
+            if (!listElement) return;
+
+            const exps = experiencesData;
+            
+            let timelineHtml = "";
+
+            exps.forEach(exp => {
+                timelineHtml += `
+                    <div class="relative pl-8 sm:pl-10 group">
+                        <div class="absolute left-0 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-darkBg border-2 border-neonPurple group-hover:border-neonCyan transition-all duration-300 shadow-neon-purple group-hover:shadow-neon-cyan flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-neonPurple group-hover:bg-neonCyan"></span>
+                        </div>
+                        
+                        <div class="glass-panel neon-card-purple p-6 rounded-2xl relative space-y-2">
+                            <span class="absolute top-4 right-4 text-xs font-semibold text-neonCyan font-mono">${exp.duration}</span>
+                            <h3 class="text-base sm:text-lg font-bold text-white tracking-wide font-display">${exp.title}</h3>
+                            <div class="text-xs font-semibold text-neonPurple">${exp.company}</div>
+                            <p class="text-xs text-gray-400 leading-relaxed mt-2">${exp.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listElement.innerHTML = timelineHtml;
+        }
+
+        window.onload = function() {
+            loadDynamicUiElements();
+            initSkillMatrices();
+            initProjectsGrid();
+            initCertsGrid();
+            initInteractiveCanvas();
+            initResumeDownloadPayload();
+            initTypingEmulator();
+        };
+
+        // Text typing animation generator for Vineet Maheshwari's portfolio
+        function initTypingEmulator() {
+            const words = [
+                "AI Systems & Web Apps", 
+                "Deep Learning Models", 
+                "Generative AI Agent Pipelines", 
+                "Robust Full-Stack Ecosystems"
+            ];
+            let wordIdx = 0;
+            let charIdx = 0;
+            let isDeleting = false;
+            const typingTarget = document.getElementById('hero-typing-target');
+
+            function typeEffect() {
+                if (!typingTarget) return;
+                const currentWord = words[wordIdx];
+                if (isDeleting) {
+                    typingTarget.innerText = currentWord.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    typingTarget.innerText = currentWord.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+
+                let speed = isDeleting ? 40 : 85;
+
+                if (!isDeleting && charIdx === currentWord.length) {
+                    speed = 2200; // Pause at the end of typing
+                    isDeleting = true;
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    wordIdx = (wordIdx + 1) % words.length;
+                    speed = 400; // Pause before starting typing next word
+                }
+
+                setTimeout(typeEffect, speed);
+            }
+            
+            typeEffect();
+        }
+
+        // Initialize resume target to look directly for your file path in the workspace
+        function initResumeDownloadPayload() {
+            const dlBtn = document.getElementById('direct-resume-dl');
+            if (dlBtn) {
+                dlBtn.href = "VineetResumeNew.docx";
+                dlBtn.setAttribute("download", "VineetResumeNew.docx");
+            }
+        }
+    </script>
+
+    <!-- CORE UI CONTROLLER SCRIPT -->
+    <script>
+        // Global Data Arrays for Skills, Projects, Certs configured directly for Vineet Maheshwari
+        const skillsArray = [
+            { name: "Python / C / Java", category: "frontend", percentage: 95, icon: "fa-brands fa-python", color: "text-neonCyan border-neonCyan/30" },
+            { name: "JavaScript / HTML / CSS", category: "frontend", percentage: 92, icon: "fa-brands fa-js", color: "text-neonPurple border-neonPurple/30" },
+            { name: "FastAPI / Node.js", category: "backend", percentage: 88, icon: "fa-solid fa-server", color: "text-neonPink border-neonPink/30" },
+            { name: "React.js Ecosystem", category: "backend", percentage: 85, icon: "fa-brands fa-react", color: "text-neonCyan border-neonCyan/30" },
+            { name: "Scikit-Learn / ML Models", category: "tools", percentage: 90, icon: "fa-solid fa-brain", color: "text-neonPurple border-neonPurple/30" },
+            { name: "Generative AI & LLMs", category: "tools", percentage: 87, icon: "fa-solid fa-microchip", color: "text-neonPink border-neonPink/30" },
+            { name: "MySQL / MongoDB Basics", category: "backend", percentage: 82, icon: "fa-solid fa-database", color: "text-neonCyan border-neonCyan/30" },
+            { name: "Git / Collab / VS Code", category: "tools", percentage: 91, icon: "fa-brands fa-git-alt", color: "text-neonPurple border-neonPurple/30" }
+        ];
+
+        const projectsArray = [
+            {
+                id: "p1",
+                title: "Access AI Accessibility Agent",
+                category: "ai",
+                desc: "A next-generation accessibility platform designed to break down barriers to digital information. Powered by React, Node.js, Python (FastAPI), and cutting-edge LLMs (Gemini & Hugging Face) to deliver real-time assistance.",
+                tags: ["React.js", "Node.js", "FastAPI", "GenAI", "HuggingFace"],
+                image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80",
+                github: "https://github.com/Vineet2309/accessibility-agent",
+                fastapi: "https://accessibility-agent-146x.onrender.com",
+                demo: "https://accessibility-agent-xs4p.onrender.com"
+            },
+            {
+                id: "p2",
+                title: "Heart Disease Prediction Pipeline",
+                category: "ml",
+                desc: "Implemented predictive Machine Learning models (Logistic Regression, Random Forest, Naïve Bayes, and KNN) achieving an 87% test accuracy. Built preprocessing pipelines, scaling algorithms, and comparative model audits.",
+                tags: ["Python", "Scikit-Learn", "FastAPI", "Render Deploy"],
+                image: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=600&q=80",
+                github: "https://github.com/Vineet2309",
+                fastapi: "https://heartdiseasefastapi.onrender.com/predict",
+                demo: "https://heartdiseaseprediction-ybj7.onrender.com"
+            },
+            {
+                id: "p3",
+                title: "Interactive Mines Tile Guessing Game",
+                category: "web",
+                desc: "An arcade-style tile guessing game where players click dynamic cells to reveal either a Win (W) or a Loss (L). Includes risk-management game theory allowing players to withdraw accumulated points on any turn.",
+                tags: ["HTML5", "CSS Glow", "JavaScript", "Game Theory"],
+                image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=600&q=80",
+                github: "https://github.com/Vineet2309/GuessGame",
+                fastapi: "",
+                demo: "https://fun-guess-game.onrender.com"
+            }
+        ];
+
+        const certificationsArray = [
+            { title: "Hackorbit 2025 Finalist", issuer: "National Hackorbit Competition", date: "Verified 2025", id: "Olympiad Finalist" },
+            { title: "JEE Mains 98.30 Percentile", issuer: "National Testing Agency (NTA)", date: "NTA Rank: 26,000", id: "Score out of 1.4 million" },
+            { title: "CodeChef 2 Star Coder", issuer: "CodeChef competitive league", date: "Active Rating Node", id: "@Vineet2309" }
+        ];
+
+        // Mobile menu toggle
+        const mobBtn = document.getElementById('mobile-menu-btn');
+        const mobMenu = document.getElementById('mobile-menu');
+        if (mobBtn && mobMenu) {
+            mobBtn.addEventListener('click', () => {
+                mobMenu.classList.toggle('hidden');
+            });
+            mobMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Interactive particle field canvas engine
+        let canvas, ctx, particles;
+        function initInteractiveCanvas() {
+            canvas = document.getElementById('particleCanvas');
+            if (!canvas) return;
+            ctx = canvas.getContext('2d');
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    color: Math.random() > 0.5 ? 'rgba(217, 70, 239, 0.4)' : 'rgba(6, 182, 212, 0.4)'
+                });
+            }
+            animateParticles();
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        // Render standard lists (Skills, Projects, Certs)
+        function initSkillMatrices() {
+            const grid = document.getElementById('skills-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = skillsArray.map(skill => {
+                let cardGlowClass = "neon-card-cyan";
+                if (skill.color.includes('neonPurple')) cardGlowClass = "neon-card-purple";
+                if (skill.color.includes('neonPink')) cardGlowClass = "neon-card-pink";
+
+                return `
+                    <div class="skill-card glass-panel ${cardGlowClass} p-5 rounded-2xl relative space-y-4" data-cat="${skill.category}">
+                        <div class="flex items-center justify-between">
+                            <div class="w-10 h-10 rounded-xl bg-darkBg border ${skill.color} flex items-center justify-center text-lg shadow-sm">
+                                <i class="${skill.icon}"></i>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-white">${skill.percentage}%</span>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-white tracking-wide font-display">${skill.name}</h4>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-neonCyan to-neonPurple" style="width: ${skill.percentage}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function initProjectsGrid() {
+            const grid = document.getElementById('projects-grid');
+            if (!grid) return;
+
+            grid.innerHTML = projectsArray.map(proj => {
+                let glowClass = "neon-card-cyan";
+                if (proj.category === 'ml') glowClass = "neon-card-purple";
+                if (proj.category === 'web') glowClass = "neon-card-pink";
+
+                return `
+                    <div class="project-card glass-panel ${glowClass} rounded-2xl overflow-hidden flex flex-col justify-between animate-fade-in" data-cat="${proj.category}">
+                        <div>
+                            <div class="relative aspect-video bg-darkBg overflow-hidden border-b border-white/5 group">
+                                <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/50 to-transparent opacity-60"></div>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${proj.tags.map(t => `<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-gray-400 font-mono">${t}</span>`).join('')}
+                                </div>
+                                <h3 class="text-base sm:text-lg font-bold text-white font-display tracking-wide">${proj.title}</h3>
+                                <p class="text-xs text-gray-400 leading-relaxed line-clamp-3">${proj.desc}</p>
+                            </div>
+                        </div>
+                        <!-- Actions with Vineet's fully functional working links -->
+                        <div class="p-6 pt-0 flex flex-col gap-2">
+                            <div class="flex gap-2">
+                                <button onclick="openProjectModal('${proj.id}')" class="flex-1 py-2 bg-white/5 hover:bg-white/10 text-gray-300 font-semibold text-xs rounded-xl border border-white/10 transition-all text-center">
+                                    Detailed Specs
+                                </button>
+                                <a href="${proj.github}" target="_blank" class="px-3 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-xl text-xs border border-white/10 transition-all flex items-center justify-center">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                </a>
+                            </div>
+                            <div class="flex gap-2">
+                                ${proj.fastapi ? `
+                                <a href="${proj.fastapi}" target="_blank" class="flex-1 py-2 bg-neonCyan/10 hover:bg-neonCyan/20 text-neonCyan border border-neonCyan/30 rounded-xl text-center text-xs font-bold transition-all flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-gears"></i> FastAPI
+                                </a>
+                                ` : ''}
+                                <a href="${proj.demo}" target="_blank" class="flex-1 py-2 bg-gradient-to-r from-neonCyan to-neonPurple hover:brightness-110 text-white rounded-xl text-center text-xs font-bold transition-all flex items-center justify-center gap-1 shadow-neon-cyan hover:scale-[1.02]">
+                                    Live Deployment <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function initCertsGrid() {
+            const grid = document.getElementById('certs-grid');
+            if (!grid) return;
+
+            grid.innerHTML = certificationsArray.map((cert, index) => {
+                let glowClass = "neon-card-cyan";
+                if (index === 1) glowClass = "neon-card-purple";
+                if (index === 2) glowClass = "neon-card-pink";
+
+                return `
+                    <div class="glass-panel ${glowClass} p-6 rounded-2xl relative space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-neonCyan/10 border border-neonCyan/30 flex items-center justify-center text-neonCyan shadow-sm">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white tracking-wide font-display leading-snug">${cert.title}</h4>
+                            <p class="text-xs text-gray-400">${cert.issuer}</p>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-white/5 text-[10px] text-gray-500 font-mono">
+                            <span>${cert.date}</span>
+                            <span>${cert.id}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Skills Filter Trigger
+        window.filterSkills = function(category) {
+            document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-neonPurple', 'text-white');
+                btn.classList.add('bg-white/5', 'text-gray-400');
+            });
+            event.target.classList.remove('bg-white/5', 'text-gray-400');
+            event.target.classList.add('active', 'bg-neonPurple', 'text-white');
+
+            document.querySelectorAll('.skill-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        };
+
+        // Projects Filter Trigger
+        window.filterProjects = function(category) {
+            document.querySelectorAll('.proj-tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-neonPink', 'text-white');
+                btn.classList.add('bg-white/5', 'text-gray-400');
+            });
+            event.target.classList.remove('bg-white/5', 'text-gray-400');
+            event.target.classList.add('active', 'bg-neonPink', 'text-white');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        };
+
+        // Project Modal Controller - working links configured
+        window.openProjectModal = function(id) {
+            const proj = projectsArray.find(p => p.id === id);
+            if (!proj) return;
+
+            document.getElementById('p-modal-title').innerText = proj.title;
+            document.getElementById('p-modal-desc').innerText = proj.desc;
+            document.getElementById('p-modal-img').src = proj.image;
+            document.getElementById('p-modal-img').alt = proj.title;
+            
+            document.getElementById('p-modal-tags').innerHTML = proj.tags.map(t => `
+                <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs text-gray-300 font-mono">${t}</span>
+            `).join('');
+
+            document.getElementById('p-modal-link-git').href = proj.github;
+            document.getElementById('p-modal-link-demo').href = proj.demo;
+
+            const fastapiBtn = document.getElementById('p-modal-link-fastapi');
+            if (proj.fastapi) {
+                fastapiBtn.href = proj.fastapi;
+                fastapiBtn.classList.remove('hidden');
+            } else {
+                fastapiBtn.classList.add('hidden');
+            }
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        };
+
+        window.closeProjectModal = function() {
+            document.getElementById('project-modal').classList.add('hidden');
+        };
+
+        // Printable Resume modal triggers
+        window.openResumePreviewModal = function() {
+            document.getElementById('resume-preview-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scrolling
+        };
+
+        window.closeResumePreviewModal = function() {
+            document.getElementById('resume-preview-modal').classList.add('hidden');
+            document.body.style.overflow = ''; // Unlock background scrolling
+        };
+
+        window.triggerResumePrint = function() {
+            window.print();
+        };
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+    </script>
+</body>
+</html>
